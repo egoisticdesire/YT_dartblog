@@ -1,0 +1,32 @@
+{% if page_obj.has_other_pages %}
+    {% if page_obj.paginator.page_range < 4 %}
+
+    {% else %}
+        <div class="pagination">
+            <div class="nav-links">
+                {% if page_obj.has_previous %}
+                    <a class="page-numbers" href="?{{ s }}page={{ page_obj.previous_page_number }}">
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    </a>
+                {% endif %}
+
+                {% for page in page_obj.paginator.page_range %}
+
+                    {% if page_obj.number == page %}
+                        <span class="page-numbers current">{{ page }}</span>
+                    {% elif page > page_obj.number|add:-3 and page < page_obj.number|add:3 %}
+                        <a class="page-numbers" href="?{{ s }}page={{ page }}">{{ page }}</a>
+                    {% endif %}
+
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                    <a class="page-numbers" href="?{{ s }}page={{ page_obj.next_page_number }}">
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+                {% endif %}
+
+            </div>
+        </div>
+    {% endif %}
+{% endif %}

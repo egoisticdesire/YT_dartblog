@@ -1,0 +1,11 @@
+{% load sidebar %}
+
+<div class="col-md-4">
+
+    {% include 'blog_app/inc/_sidebar_search.html' %}
+
+    {% get_popular_posts %}
+
+    {% get_tags %}
+
+</div>
