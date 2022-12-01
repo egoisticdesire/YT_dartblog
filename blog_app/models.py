@@ -4,7 +4,7 @@ from django.urls import reverse
 '''
     Category:
         title,
-        slag
+        slug
     Tag:
         title,
         slug
